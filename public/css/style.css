@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+* {
+  box-sizing: border-box;
+}
+html {
+    height: 100%;
+  }
+body {
+  height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55) fixed;
+  }
+
+  
+
+  .form-floating>.form-control, .form-floating>.form-select {
+    color: white;
+    color: white;
+    border: none !important;
+    border-bottom: #fff 1px solid !important;
+    background-color: transparent !important;
+  }
+
+  .text-blue{
+    color: #03e9f4;
+    opacity: 100 !important;
+  }
+
+  .form-floating>input{
+    color: white !important;
+  }
