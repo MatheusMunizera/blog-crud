@@ -1,0 +1,33 @@
+<%- include("../../partials/head.ejs") %>
+<%- include("../../partials/navbar.ejs") %>
+<div class="container">
+   
+
+        
+    <div class="card mt-5 bg-transparent">
+        <div class="card-header">
+            <h3 class="text-white">CRIAR CATEGORIA</h3>
+        </div>
+
+
+            <div class="card-body">
+
+                <form action="/categories/save" class="form-control bg-transparent border-0" method="POST">
+                    <div class="form-floating m-3">
+                        <input class="form-control m-2" type="text" name="title" placeholder="Defina o Nome da Categoria">
+                        <label for="floatingInputValue" class="text-blue ">Nome da Categoria</label>
+                      </div>
+                
+                      <div class="next-box">
+                    
+                        <button class="btn float-end   m-2"> <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>Cadastrar</button>
+                    </div>
+             </form>
+            </div>
+        </div>
+  
+</div>
+<%- include("../../partials/footer.ejs") %>

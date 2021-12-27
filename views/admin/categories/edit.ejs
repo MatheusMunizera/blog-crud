@@ -1,0 +1,33 @@
+<%- include("../../partials/head.ejs") %>
+<%- include("../../partials/navbar.ejs") %>
+<div class="container">
+    
+    <div class="card mt-5 bg-transparent">
+        <div class="card-header">
+            <h3 class="text-white">Editar Categoria</h3>
+        </div>
+
+
+        <div class="card-body">
+            <form action="/categories/update" method="POST">
+                <div class="form-floating m-3">
+                    <input class="form-control" id="floatingInputValue" type="text" name="title" required value="<%= category.title %>" >
+                    <input type="hidden" name="id" value="<%= category.id %> ">
+                    <label for="floatingInputValue" class="text-blue ">Digite o Novo Titulo do Artigo</label>
+                  </div>
+                <div class="next-box">
+                    
+                    <button class="btn float-end   m-2"> <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>Atualizar</button>
+                </div>
+            </form> 
+            
+        </div>
+    </div>
+
+       
+    
+</div>
+<%- include("../../partials/footer.ejs") %>

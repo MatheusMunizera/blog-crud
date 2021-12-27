@@ -1,0 +1,55 @@
+<%- include("partials/head.ejs");%> 
+<%- include("partials/homenavbar.ejs");%> 
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4 text-white">Seja bem vindo</h1>
+            <p class="lead text-white">Veja os nossos melhores artigos logo abaixo</p>
+        </div>
+
+        <div class="row">
+
+        <% articles.forEach(a => { %>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= a.title %></h5>
+                      <p class="card-text text-truncate"><%= a.body %></p>
+                      
+                      <div class="card-box">
+                 
+                        <a href="/article/<%= a.slug %> " class="btn " >
+                            Ler mais
+                          </a>
+                     
+                   
+                  </div>
+                    </div>
+                  </div>
+            </div>
+           
+            <% }) %>
+    
+              
+        </div>
+        
+
+
+
+
+        <div class="row float-right d-flex col-auto">
+          
+            <div class="col col-12 next-box">
+               
+                <a href="/articles/page/2" class="float-end btn ">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    AVANÇAR
+                </a>
+            </div>
+        </div> 
+    </div>
+</body>
+<%- include("partials/footer.ejs") %> 

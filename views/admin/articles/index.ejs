@@ -1,0 +1,61 @@
+<%- include("../../partials/head.ejs") %>
+<%- include("../../partials/navbar.ejs") %>
+<div class="container">
+    <hr>
+    <h2 class="text-white">Artigos</h2>
+    <div class="next-box">
+
+        <a class="btn " href="/admin/articles/new">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Criar Novo Artigo</a>
+    </div>
+
+    <hr>
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITULO</th>
+                <th>SLUG</th>
+                <th>CATEGORIA</th>
+                <th>ACOES</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% articles.forEach(article =>{%>
+            <tr class="align-middle">
+                <td><%= article.id  %></td>
+                <td><%= article.title %></td>
+                <td><%= article.slug %></td>
+                <td><%= article.category.title %></td>
+                <th class="d-flex">
+                  
+                        <a href="/admin/articles/edit/<%=article.id%>" class="btn btn-warning "><i class="bi bi-pencil-square"></i>
+                            </a>
+                
+                    
+                    <form action="/articles/delete" method="POST" 
+                        onsubmit="confirmDelete(event, this)">
+                        <input type="hidden" name="id" value=<%= article.id %>>
+                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                    </form>
+                </th>
+            </tr>
+            <% })  %>
+        </tbody>
+    </table>
+</div>
+<%- include("../../partials/footer.ejs") %>
+<script>
+    function confirmDelete(event, form) {
+        event.preventDefault();
+        let choice = confirm("Tem certeza disso?");
+        if (choice) {
+            form.submit();
+        }
+    }
+</script>

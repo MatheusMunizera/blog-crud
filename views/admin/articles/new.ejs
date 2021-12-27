@@ -1,0 +1,55 @@
+<%- include("../../partials/head.ejs") %>
+<%- include("../../partials/navbar.ejs") %>
+<div class="container">
+  
+
+    <div class="card mt-5 bg-transparent">
+        <div class="card-header">
+            <h3 class="text-white">CRIAR ARTIGO</h3>
+        </div>
+
+
+            <div class="card-body">
+
+                <form action="/articles/save" class="form-control bg-transparent border-0" method="POST">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating m-3">
+                                <input class="form-control m-2" type="text" name="title" placeholder="Defina o titulo do artigo">
+                                <label for="floatingInputValue" class="text-blue ">Titulo do Artigo</label>
+                              </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating m-3">
+                                <select class="form-select" name="category" id="category"  aria-label="Floating label select example">
+                                    <% categories.forEach((category)=>{ %>
+                                        <option value="<%= category.id %> "><%= category.title %> </option>
+                                    <% }) %>
+                                </select>
+                                <label for="floatingSelect" class="text-blue ">Selecione sua categoria</label>
+                              </div>
+                        </div>
+                    </div>
+
+                    
+                    <label for="floatingTextarea" class="text-blue m-3 mb-0 fs-5">Seu Artigo</label>
+                <div class="form-floating m-3">
+                    
+                    <textarea class="form-control" id="body" placeholder="Escreva o seu artigo" name="body" required></textarea>
+                    
+                  </div>
+                
+              
+                  <div class="next-box">
+                    
+                    <button class="btn float-end   m-2"> <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>Cadastrar</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    
+</div>
+<%- include("../../partials/footer.ejs") %>

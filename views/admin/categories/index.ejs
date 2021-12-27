@@ -1,0 +1,57 @@
+<%- include("../../partials/head.ejs") %>
+<%- include("../../partials/navbar.ejs") %>
+<div class="container">
+    <hr>
+    <h2 class="text-white">Artigo</h2>
+    <div class="next-box">
+
+        <a class="btn " href="/admin/categories/new">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Criar Nova Categoria</a>
+    </div>
+    <hr>
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITULO</th>
+                <th>SLUG</th>
+                <th>ACOES</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            <% categories.forEach(category =>{%>
+                <tr>
+                    <th><%= category.id  %></th>
+                    <th><%= category.title %></th>
+                    <th><%= category.slug %></th>
+                    <th class="d-flex">
+                        
+                           
+                            <a href="/admin/categories/edit/<%=category.id%>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                      
+
+                        <form action="/categories/delete" method="POST"  onsubmit="confirmDelete(event, this)">
+                            <input type="hidden" name="id" value=<%= category.id %> >
+                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                    </form>
+                    </th>
+                </tr>
+            <% })  %>  
+        </tbody>
+    </table>
+</div>
+<%- include("../../partials/footer.ejs") %>
+<script>
+    function confirmDelete(event, form){
+        event.preventDefault();
+        let choice = confirm("Tem certeza disso?");
+        if(choice){
+            form.submit();
+        }
+    }
+</script>
